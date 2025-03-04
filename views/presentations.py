@@ -15,7 +15,7 @@ def presentations():
             df = pd.DataFrame([
                 {
                     "Title": p["title"],
-                    "ID": p["directory"],
+                    "Created On": p["created_on"],
                     "Link": f"[View]({config['STATIC_CONTENT_ENDPOINT']}/{p['directory']}/dist/)"
                 }
                 for p in presentations
