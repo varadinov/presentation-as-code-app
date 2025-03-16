@@ -4,6 +4,7 @@ import shutil
 from typing import Any, Generator
 import uuid
 import re
+from config import config
 
 from utils.command import run_command
 from utils.file import get_file_creation_time
@@ -20,7 +21,7 @@ def generate_presentation(content: str, template_dir: str = "slidev_template"):
         file.write(content)
 
     run_command(['npm', 'install'], dist_path)
-    run_command(['npm', 'run', 'build', '--', '--base', f'/{unique_id}/dist'], dist_path)
+    run_command(['npm', 'run', 'build', '--', '--base', f'{config['PRESENTATIONS_PREFIX']}/{unique_id}/dist'], dist_path)
 
     return unique_id
 
