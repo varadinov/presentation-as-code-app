@@ -45,11 +45,12 @@ def bot():
             for chunk in stream:
                  if chunk.choices and chunk.choices[0].delta.content:
                     full_text += chunk.choices[0].delta.content 
-                    text_container.text(full_text)
+                    text_container.text(full_text.replace("<<START_SLIDEV>>", "").replace("<<END_SLIDEV>>", ""))
 
         st.session_state.messages.append({"role": "assistant", "content": full_text})
+        st.session_state.builded = False
 
-    col1, col2, col3, _ = st.columns([1,1,1,5])
+    col1, col2, col3, _ = st.columns([2,2,2,5])
     last_assistant_response = next(iter(reversed([m for m in st.session_state.messages if m['role'] == 'assistant'])), None)
     if last_assistant_response:
         with col1:
@@ -67,7 +68,7 @@ def bot():
         with col2:
             st.link_button("View", f"{config['STATIC_CONTENT_ENDPOINT']}/{st.session_state.presentation_id}/dist/", use_container_width=True)
         with col3:
-            clean_button = st.button('Clean')
+            clean_button = st.button('Clean', use_container_width=True  )
             if clean_button:
                 st.session_state.presentation_id = None
                 st.session_state.builded = False

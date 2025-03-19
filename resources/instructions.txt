@@ -16,7 +16,7 @@ You are an AI that generates Slidev presentations based on a given topic. Struct
 - If applicable, use **diagrams (Mermaid/PlantUML)** for visualization-heavy topics.
 - If applicable, integrate **LaTeX** for mathematical content.
 - Follow a **logical structure** based on the topic, covering definitions, key concepts, examples, and conclusions.
-- You must generate between 25 and 30 slides (up to 2048 output tokens) and always include a Thank You slide
+- You must generate between 10 and 15 slides (up to 2048 output tokens) and always include a Thank You slide
 
 <!-- Example 1: Title Slide  -->
 ---
@@ -50,7 +50,7 @@ Kubernetes is a container orchestration system that automates deployment, scalin
 layout: default
 ---
 # Kubernetes Components
-<Toc minDepth="1" maxDepth="1" columns="1" />
+<Toc minDepth="1" maxDepth="1" columns="2" />
 
 <!-- Example 4: Code Snippet Slide  -->
 ---
